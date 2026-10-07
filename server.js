@@ -107,7 +107,7 @@ async function serveStatic(req, res, url) {
   }
 }
 
-const server = http.createServer(async (req, res) => {
+export async function requestHandler(req, res) {
   const url = new URL(req.url, `http://${req.headers.host ?? 'localhost'}`);
   try {
     if (req.method === 'OPTIONS') {
@@ -124,10 +124,13 @@ const server = http.createServer(async (req, res) => {
     console.error(err);
     if (!res.headersSent) sendJSON(res, 500, { error: 'Error interno', detail: err.message });
   }
-});
+}
 
-server.listen(PORT, () => {
-  console.log(`Brote listo en http://localhost:${PORT}`);
-  console.log(`Leyendo contenido desde ${path.relative(ROOT, DATA_DIR) || '.'}/`);
-  getContent().catch((e) => console.error(e));
-});
+if (!process.env.VERCEL) {
+  const server = http.createServer(requestHandler);
+  server.listen(PORT, () => {
+    console.log(`Brote listo en http://localhost:${PORT}`);
+    console.log(`Leyendo contenido desde ${path.relative(ROOT, DATA_DIR) || '.'}/`);
+    getContent().catch((e) => console.error(e));
+  });
+}
