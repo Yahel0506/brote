@@ -1,0 +1,102 @@
+{
+  "endings": [
+    {
+      "id": "cuesta",
+      "priority": 9,
+      "requires": {
+        "any": [
+          {
+            "stats": {
+              "bienestar": {
+                "max": 35
+              }
+            }
+          },
+          {
+            "stats": {
+              "recursos": {
+                "max": 30
+              }
+            }
+          }
+        ]
+      },
+      "title": "Una vida cuesta arriba",
+      "text": "Hubo tramos difíciles, algunos elegidos y otros no. Aun así, cada decisión fue tuya, y la forma que quedó también lo es."
+    },
+    {
+      "id": "plenitud",
+      "priority": 8,
+      "requires": {
+        "stats": {
+          "aprendizaje": {
+            "min": 60
+          },
+          "bienestar": {
+            "min": 60
+          },
+          "relaciones": {
+            "min": 60
+          },
+          "recursos": {
+            "min": 60
+          }
+        }
+      },
+      "title": "Una vida repartida",
+      "text": "Fuiste acomodando las piezas sin dejar que una sola lo ocupara todo. No fue una vida sin renuncias: fue una vida en la que las renuncias estuvieron repartidas."
+    },
+    {
+      "id": "calma",
+      "priority": 6,
+      "requires": {
+        "stats": {
+          "bienestar": {
+            "min": 70
+          }
+        }
+      },
+      "title": "Una vida a buen ritmo",
+      "text": "Aprendiste pronto que el cuerpo y la cabeza también cuentan. Tu recorrido fue más lento en algunos tramos, y quizá por eso llegó más entero."
+    },
+    {
+      "id": "base",
+      "priority": 6,
+      "requires": {
+        "stats": {
+          "recursos": {
+            "min": 70
+          }
+        }
+      },
+      "title": "Una vida con suelo firme",
+      "text": "Construiste estabilidad. Te dio margen para elegir cuando otros no podían, aunque a veces costó tiempo que no vuelve."
+    },
+    {
+      "id": "vinculos",
+      "priority": 5,
+      "requires": {
+        "stats": {
+          "relaciones": {
+            "min": 88
+          }
+        }
+      },
+      "title": "Una vida con otros",
+      "text": "Lo que más pesa en tu historia son las personas. Muchas de tus decisiones se tomaron pensando en alguien más, y ese alguien casi siempre estuvo ahí de vuelta."
+    },
+    {
+      "id": "saber",
+      "priority": 5,
+      "requires": {
+        "stats": {
+          "aprendizaje": {
+            "min": 95
+          }
+        }
+      },
+      "title": "Una vida de preguntas",
+      "text": "Elegiste entender. No siempre fue lo más cómodo, pero cada cosa aprendida abrió una puerta que antes no estaba."
+    }
+  ]
+}

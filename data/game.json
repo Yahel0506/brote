@@ -1,0 +1,47 @@
+{
+  "stats": [
+    {
+      "id": "aprendizaje",
+      "label": "Aprendizaje",
+      "initial": 50
+    },
+    {
+      "id": "bienestar",
+      "label": "Bienestar",
+      "initial": 50
+    },
+    {
+      "id": "relaciones",
+      "label": "Relaciones",
+      "initial": 50
+    },
+    {
+      "id": "recursos",
+      "label": "Recursos",
+      "initial": 50
+    }
+  ],
+  "stages": [
+    {
+      "id": "adolescencia",
+      "label": "Adolescencia",
+      "subtitle": "Todo parece urgente y todo parece para siempre."
+    },
+    {
+      "id": "juventud",
+      "label": "Juventud",
+      "subtitle": "Empiezas a elegir qué hacer con lo que te tocó."
+    },
+    {
+      "id": "adultez",
+      "label": "Adultez",
+      "subtitle": "Lo que construiste empieza a sostenerte, o a pesarte."
+    },
+    {
+      "id": "etapa-posterior",
+      "label": "Etapa posterior",
+      "subtitle": "Las decisiones de antes ya tienen raíces."
+    }
+  ],
+  "rules": []
+}

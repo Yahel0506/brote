@@ -1,0 +1,524 @@
+{
+  "version": 1,
+  "stage": "etapa-posterior",
+  "requiredChoices": 4,
+  "startNode": "inicio",
+  "nextStage": null,
+  "statOrder": [
+    "aprendizaje",
+    "bienestar",
+    "relaciones",
+    "recursos"
+  ],
+  "scoreRange": [
+    0,
+    100
+  ],
+  "nodes": {
+    "inicio": {
+      "prompt": "¿Mantienes la rutina que construiste o intentas un cambio?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mantener la rutina: algunas costumbres siguen expresando quién eres.",
+          "next": "memoria",
+          "outcome": {
+            "text": "La rutina continúa y ofrece un marco conocido para tus días.",
+            "delta": [
+              -1,
+              3,
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Intentar un cambio: todavía puedes hacer espacio para algo que no habías probado.",
+          "next": "cambio",
+          "outcome": {
+            "text": "Comienzas a reorganizar tus días alrededor de una experiencia nueva.",
+            "delta": [
+              3,
+              -2,
+              0,
+              -3
+            ]
+          }
+        }
+      ]
+    },
+    "memoria": {
+      "prompt": "¿Qué compartes con tu familia sobre una decisión pasada?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Contar la historia completa, incluso si cambia lo que otros recuerdan.",
+          "next": "testimonio",
+          "outcome": {
+            "text": "La familia conoce aspectos que no formaban parte del recuerdo compartido.",
+            "delta": [
+              2,
+              -2,
+              -3,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Guardar una parte para respetar la privacidad de alguien más.",
+          "next": "participacion",
+          "outcome": {
+            "text": "Respetas esa confidencia y compartes solo tu propia parte.",
+            "delta": [
+              0,
+              1,
+              2,
+              0
+            ]
+          }
+        },
+        {
+          "id": "c",
+          "text": "Invitar a las personas implicadas a contar sus versiones juntas.",
+          "next": "participacion",
+          "outcome": {
+            "text": "La conversación reúne perspectivas que antes estaban separadas.",
+            "delta": [
+              1,
+              -1,
+              4,
+              0
+            ]
+          },
+          "when": {
+            "stat": "relaciones",
+            "gte": 60
+          }
+        }
+      ]
+    },
+    "cambio": {
+      "prompt": "¿Qué lugar tendría la ayuda de otras personas en ese cambio?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Aceptar ayuda y decidir en conjunto cómo se organiza.",
+          "next": "transmitir",
+          "outcome": {
+            "text": "El cambio se convierte en un proyecto compartido.",
+            "delta": [
+              1,
+              3,
+              3,
+              1
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Aceptar apoyo en tareas concretas, conservando las decisiones principales.",
+          "next": "autonomia",
+          "outcome": {
+            "text": "Recibes ayuda práctica y conservas la dirección del proyecto.",
+            "delta": [
+              1,
+              2,
+              1,
+              -1
+            ]
+          }
+        },
+        {
+          "id": "c",
+          "text": "Pedir un periodo de descanso antes de decidir sobre el cambio.",
+          "next": "autonomia",
+          "outcome": {
+            "text": "Pospones la decisión para recuperarte antes de continuar.",
+            "delta": [
+              0,
+              6,
+              1,
+              0
+            ]
+          },
+          "when": {
+            "stat": "bienestar",
+            "lt": 30
+          }
+        }
+      ]
+    },
+    "testimonio": {
+      "prompt": "¿Cómo te gustaría dejar una decisión importante?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Escribir lo ocurrido con todos los matices, aunque no deje una historia sencilla.",
+          "next": "historia",
+          "outcome": {
+            "text": "El testimonio conserva detalles y dudas que antes no estaban registrados.",
+            "delta": [
+              3,
+              -1,
+              1,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Conversarlo con quienes participaron y decidir juntos qué registrar.",
+          "next": "reparto",
+          "outcome": {
+            "text": "El relato final incorpora la perspectiva de varias personas.",
+            "delta": [
+              1,
+              0,
+              3,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "participacion": {
+      "prompt": "¿Quién debería participar en decidir qué hacer con lo que queda?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Reunir a las personas afectadas y escuchar qué esperan.",
+          "next": "reparto",
+          "outcome": {
+            "text": "Las expectativas aparecen antes de tomar una decisión definitiva.",
+            "delta": [
+              0,
+              -1,
+              4,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Decidirlo tú y explicar después el criterio utilizado.",
+          "next": "reserva",
+          "outcome": {
+            "text": "La decisión queda en tus manos y luego comunicas tus razones.",
+            "delta": [
+              1,
+              1,
+              -2,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "transmitir": {
+      "prompt": "¿Qué te gustaría transmitir a quienes siguen?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Compartir experiencias y habilidades con varias personas.",
+          "next": "ensenanza",
+          "outcome": {
+            "text": "Abres espacios para transmitir lo aprendido a más de una persona.",
+            "delta": [
+              4,
+              1,
+              3,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Ofrecer apoyo concreto a quien está en una situación más urgente.",
+          "next": "reparto",
+          "outcome": {
+            "text": "Enfocas tu ayuda en una necesidad cercana.",
+            "delta": [
+              1,
+              0,
+              2,
+              -2
+            ]
+          }
+        },
+        {
+          "id": "c",
+          "text": "Preparar una guía o enseñanza basada en lo que has aprendido.",
+          "next": "ensenanza",
+          "outcome": {
+            "text": "Tus conocimientos toman una forma que otras personas podrán usar.",
+            "delta": [
+              5,
+              -1,
+              2,
+              0
+            ]
+          },
+          "when": {
+            "stat": "aprendizaje",
+            "gte": 60
+          }
+        }
+      ]
+    },
+    "autonomia": {
+      "prompt": "¿Cuánto quieres reservar para tu propia autonomía?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mantener una reserva que te permita decidir tus próximos pasos.",
+          "next": "reserva",
+          "outcome": {
+            "text": "Conservas recursos para decisiones personales futuras.",
+            "delta": [
+              0,
+              2,
+              -1,
+              3
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Destinar una parte a un proyecto significativo ahora.",
+          "next": "ensenanza",
+          "outcome": {
+            "text": "Pones recursos en un proyecto que puede empezar en el presente.",
+            "delta": [
+              2,
+              1,
+              2,
+              -4
+            ]
+          },
+          "when": {
+            "stat": "recursos",
+            "gte": 30
+          }
+        },
+        {
+          "id": "c",
+          "text": "Dedicar tiempo a un proyecto compartido que requiera poco dinero.",
+          "next": "ensenanza",
+          "outcome": {
+            "text": "El proyecto avanza con tiempo y colaboración en lugar de gasto.",
+            "delta": [
+              2,
+              1,
+              3,
+              0
+            ]
+          },
+          "when": {
+            "stat": "recursos",
+            "lt": 30
+          }
+        }
+      ]
+    },
+    "historia": {
+      "prompt": "¿Cómo compartes una historia que también pertenece a otras personas?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Dejar el testimonio completo a disposición de la familia.",
+          "next": null,
+          "outcome": {
+            "text": "El relato completo queda disponible y cada persona podrá interpretarlo.",
+            "delta": [
+              3,
+              -2,
+              -1,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Pedir a las personas implicadas que decidan juntas qué partes compartir.",
+          "next": null,
+          "outcome": {
+            "text": "La familia define un acuerdo sobre la circulación del relato.",
+            "delta": [
+              1,
+              0,
+              3,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "reparto": {
+      "prompt": "¿Con qué criterio repartes lo que puedes ofrecer?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Dar a cada persona una parte igual.",
+          "next": null,
+          "outcome": {
+            "text": "Todas reciben una parte equivalente, aunque sus necesidades difieran.",
+            "delta": [
+              0,
+              -1,
+              3,
+              -6
+            ]
+          },
+          "when": {
+            "stat": "recursos",
+            "gte": 30
+          }
+        },
+        {
+          "id": "b",
+          "text": "Concentrar el apoyo en quien más lo necesita.",
+          "next": null,
+          "outcome": {
+            "text": "Una necesidad recibe más apoyo y otras personas reciben menos.",
+            "delta": [
+              0,
+              1,
+              -3,
+              -6
+            ]
+          },
+          "when": {
+            "stat": "recursos",
+            "gte": 30
+          }
+        },
+        {
+          "id": "c",
+          "text": "Repartir tu tiempo y tus conocimientos de forma equivalente.",
+          "next": null,
+          "outcome": {
+            "text": "Todas reciben una parte de tu tiempo y experiencia.",
+            "delta": [
+              3,
+              1,
+              2,
+              0
+            ]
+          },
+          "when": {
+            "stat": "recursos",
+            "lt": 30
+          }
+        },
+        {
+          "id": "d",
+          "text": "Dedicar más tiempo a la persona con mayor necesidad.",
+          "next": null,
+          "outcome": {
+            "text": "Concentras tu atención donde ves una necesidad más urgente.",
+            "delta": [
+              2,
+              -1,
+              1,
+              0
+            ]
+          },
+          "when": {
+            "stat": "recursos",
+            "lt": 30
+          }
+        }
+      ]
+    },
+    "ensenanza": {
+      "prompt": "¿Cómo quieres transmitir lo que has aprendido?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Acompañar de cerca a una persona y adaptar la enseñanza a su camino.",
+          "next": null,
+          "outcome": {
+            "text": "Esa persona recibe acompañamiento profundo y continuado.",
+            "delta": [
+              4,
+              -1,
+              2,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Compartirlo en un espacio abierto para que varias personas lo adapten.",
+          "next": null,
+          "outcome": {
+            "text": "Más personas pueden usar la experiencia según sus circunstancias.",
+            "delta": [
+              3,
+              -1,
+              3,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "reserva": {
+      "prompt": "¿Qué haces con los recursos que respaldan tu independencia?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Conservarlos disponibles para decidir con libertad más adelante.",
+          "next": null,
+          "outcome": {
+            "text": "Mantienes una reserva para tus próximas decisiones.",
+            "delta": [
+              0,
+              2,
+              -2,
+              4
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Compartir una parte ahora con alguien cercano.",
+          "next": null,
+          "outcome": {
+            "text": "Esa persona recibe apoyo y tu reserva disminuye.",
+            "delta": [
+              0,
+              1,
+              3,
+              -4
+            ]
+          },
+          "when": {
+            "stat": "recursos",
+            "gte": 30
+          }
+        },
+        {
+          "id": "c",
+          "text": "Ofrecer apoyo en tiempo y gestiones sin usar dinero.",
+          "next": null,
+          "outcome": {
+            "text": "Ayudas de una forma que conserva tus recursos económicos.",
+            "delta": [
+              1,
+              1,
+              2,
+              0
+            ]
+          },
+          "when": {
+            "stat": "recursos",
+            "lt": 30
+          }
+        }
+      ]
+    }
+  }
+}

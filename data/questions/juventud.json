@@ -1,0 +1,590 @@
+{
+  "version": 1,
+  "stage": "juventud",
+  "requiredChoices": 6,
+  "startNode": "inicio",
+  "nextStage": "adultez",
+  "statOrder": [
+    "aprendizaje",
+    "bienestar",
+    "relaciones",
+    "recursos"
+  ],
+  "scoreRange": [
+    0,
+    100
+  ],
+  "nodes": {
+    "inicio": {
+      "prompt": "¿Continúas estudiando o empiezas a trabajar?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Seguir estudiando: quieres completar una preparación antes de elegir un rumbo laboral.",
+          "next": "estudios",
+          "outcome": {
+            "text": "Continúas tu formación y usas recursos para sostenerla.",
+            "delta": [
+              8,
+              -1,
+              0,
+              -7
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Empezar a trabajar: quieres ganar independencia y conocer el mundo laboral desde dentro.",
+          "next": "trabajo",
+          "outcome": {
+            "text": "Comienzas a recibir ingresos y dispones de menos tiempo para estudiar.",
+            "delta": [
+              -3,
+              -2,
+              0,
+              9
+            ]
+          }
+        }
+      ]
+    },
+    "estudios": {
+      "prompt": "¿Cómo buscarías una forma de financiar o sostener tus estudios?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Solicitar apoyo según tus méritos y circunstancias.",
+          "next": "financiacion",
+          "outcome": {
+            "text": "Presentas una solicitud y reúnes documentos para continuar.",
+            "delta": [
+              4,
+              -1,
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Elegir un programa compatible con un empleo parcial.",
+          "next": "curso",
+          "outcome": {
+            "text": "Diseñas una ruta que combina formación con trabajo remunerado.",
+            "delta": [
+              3,
+              -2,
+              0,
+              4
+            ]
+          }
+        },
+        {
+          "id": "c",
+          "text": "Solicitar la beca académica para la que ya tienes antecedentes.",
+          "next": "financiacion",
+          "outcome": {
+            "text": "Tu trayectoria permite presentar una solicitud de beca.",
+            "delta": [
+              5,
+              -1,
+              0,
+              3
+            ]
+          },
+          "when": {
+            "stat": "aprendizaje",
+            "gte": 60
+          }
+        }
+      ]
+    },
+    "trabajo": {
+      "prompt": "Tu horario de trabajo coincide con una oportunidad de estudio. ¿Qué negocias?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pedir un horario que deje espacio a las clases.",
+          "next": "horario",
+          "outcome": {
+            "text": "Acordáis un horario que deja espacio para la formación.",
+            "delta": [
+              3,
+              2,
+              1,
+              -2
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Aceptar los turnos primero y ajustar el estudio después.",
+          "next": "informe",
+          "outcome": {
+            "text": "Asumes los turnos y pospones parte del estudio.",
+            "delta": [
+              -2,
+              -3,
+              0,
+              6
+            ]
+          }
+        }
+      ]
+    },
+    "financiacion": {
+      "prompt": "La ayuda disponible pide información personal. ¿Qué compartes?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Presentar toda la información solicitada.",
+          "next": "presentacion",
+          "outcome": {
+            "text": "La solicitud avanza con todos los datos requeridos.",
+            "delta": [
+              2,
+              -1,
+              0,
+              3
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Preguntar qué datos son imprescindibles antes de decidir.",
+          "next": "opcion_puente",
+          "outcome": {
+            "text": "Aclaran el alcance de la solicitud y mantienes abierta otra ruta.",
+            "delta": [
+              1,
+              1,
+              1,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "curso": {
+      "prompt": "Aparece una capacitación que no habías planeado. ¿La tomas?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Aceptar la capacitación y reorganizar el periodo.",
+          "next": "presentacion",
+          "outcome": {
+            "text": "Entras al programa y ajustas tu calendario.",
+            "delta": [
+              6,
+              -2,
+              0,
+              -4
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Esperar a conocer mejor las condiciones antes de comprometerte.",
+          "next": "opcion_puente",
+          "outcome": {
+            "text": "Recabas información y mantienes tu organización actual.",
+            "delta": [
+              1,
+              1,
+              0,
+              1
+            ]
+          }
+        }
+      ]
+    },
+    "horario": {
+      "prompt": "El empleador te propone un turno adicional. ¿Qué respondes?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Decir qué horario puedes sostener y negociar desde ahí.",
+          "next": "consulta",
+          "outcome": {
+            "text": "Queda claro qué turnos puedes asumir con el resto de tus compromisos.",
+            "delta": [
+              1,
+              2,
+              1,
+              -1
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Tomar el turno y reorganizar tus estudios alrededor del trabajo.",
+          "next": "equipo",
+          "outcome": {
+            "text": "El turno queda cubierto y reordenas las clases y el descanso.",
+            "delta": [
+              -2,
+              -4,
+              0,
+              5
+            ]
+          },
+          "when": {
+            "stat": "bienestar",
+            "gte": 30
+          }
+        },
+        {
+          "id": "c",
+          "text": "Pedir que el turno se cubra de otra manera mientras descansas.",
+          "next": "consulta",
+          "outcome": {
+            "text": "El turno se reasigna y tomas una pausa antes de seguir.",
+            "delta": [
+              0,
+              5,
+              1,
+              -1
+            ]
+          },
+          "when": {
+            "stat": "bienestar",
+            "lt": 30
+          }
+        }
+      ]
+    },
+    "informe": {
+      "prompt": "Te piden aprobar un informe que no has podido revisar por completo. ¿Qué haces?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pedir tiempo para verificar los datos antes de aprobarlos.",
+          "next": "equipo",
+          "outcome": {
+            "text": "El informe espera a una revisión más completa.",
+            "delta": [
+              3,
+              -1,
+              1,
+              -2
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Aprobar el informe con una nota sobre lo que falta revisar.",
+          "next": "consulta",
+          "outcome": {
+            "text": "El informe avanza con una reserva escrita sobre los datos pendientes.",
+            "delta": [
+              1,
+              -1,
+              -1,
+              2
+            ]
+          }
+        }
+      ]
+    },
+    "presentacion": {
+      "prompt": "¿Cómo te prepararías para una entrevista o revisión de progreso?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Presentar tu trayectoria tal como es y destacar lo que has aprendido.",
+          "next": "rumbo_estudio",
+          "outcome": {
+            "text": "Tu presentación muestra con claridad las habilidades ya construidas.",
+            "delta": [
+              4,
+              1,
+              1,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Enfatizar la experiencia que más se acerca al puesto que buscas.",
+          "next": "rumbo_ingreso",
+          "outcome": {
+            "text": "Adaptas la presentación al puesto y recibes interés por esa experiencia.",
+            "delta": [
+              2,
+              0,
+              0,
+              2
+            ]
+          }
+        }
+      ]
+    },
+    "opcion_puente": {
+      "prompt": "¿Qué opción eliges mientras reúnes la información?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Elegir una ruta de estudio que puedas sostener con los recursos disponibles.",
+          "next": "rumbo_ingreso",
+          "outcome": {
+            "text": "Encuentras una ruta de estudio ajustada a tus medios.",
+            "delta": [
+              3,
+              1,
+              0,
+              -2
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Tomar un empleo por un periodo y volver a evaluar después.",
+          "next": "rumbo_estudio",
+          "outcome": {
+            "text": "Obtienes ingresos y dejas fijado un momento para reconsiderar el estudio.",
+            "delta": [
+              -1,
+              -1,
+              0,
+              5
+            ]
+          }
+        },
+        {
+          "id": "c",
+          "text": "Pedir una opción subsidiada antes de decidir.",
+          "next": "rumbo_estudio",
+          "outcome": {
+            "text": "El trámite abre una alternativa con menor costo y mayor espera.",
+            "delta": [
+              2,
+              -1,
+              1,
+              0
+            ]
+          },
+          "when": {
+            "stat": "recursos",
+            "lt": 30
+          }
+        }
+      ]
+    },
+    "consulta": {
+      "prompt": "¿A quién incluirías en la conversación sobre tus planes?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pedir consejo a alguien que conozca tu situación.",
+          "next": "rumbo_estudio",
+          "outcome": {
+            "text": "Recibes una perspectiva cercana que ayuda a ordenar tus prioridades.",
+            "delta": [
+              1,
+              2,
+              3,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Resolverlo primero por tu cuenta y contarles después.",
+          "next": "rumbo_ingreso",
+          "outcome": {
+            "text": "Defines una dirección propia antes de compartirla.",
+            "delta": [
+              1,
+              1,
+              -1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "c",
+          "text": "Pedir a tu red que cubra temporalmente una necesidad concreta.",
+          "next": "rumbo_estudio",
+          "outcome": {
+            "text": "La confianza previa permite distribuir una carga durante un tiempo.",
+            "delta": [
+              1,
+              3,
+              3,
+              2
+            ]
+          },
+          "when": {
+            "stat": "relaciones",
+            "gte": 60
+          }
+        }
+      ]
+    },
+    "equipo": {
+      "prompt": "¿Qué significa para ti responder a una expectativa del equipo?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Consultar cómo otras personas han manejado una situación similar.",
+          "next": "rumbo_estudio",
+          "outcome": {
+            "text": "Escuchas varias experiencias antes de decidir cómo participar.",
+            "delta": [
+              2,
+              0,
+              2,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Decidir según el criterio que puedas defender ante el equipo.",
+          "next": "rumbo_ingreso",
+          "outcome": {
+            "text": "Explicas al equipo el criterio con el que vas a actuar.",
+            "delta": [
+              1,
+              -1,
+              0,
+              2
+            ]
+          }
+        }
+      ]
+    },
+    "rumbo_estudio": {
+      "prompt": "¿Qué tipo de camino quieres construir ahora?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Continuar con estudios o capacitación como prioridad.",
+          "next": "cierre_formacion",
+          "outcome": {
+            "text": "Reservas tiempo y recursos para seguir formándote.",
+            "delta": [
+              5,
+              -1,
+              0,
+              -4
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Combinar trabajo y estudio con límites definidos.",
+          "next": "cierre_trabajo",
+          "outcome": {
+            "text": "Fijas límites para mantener ambas actividades.",
+            "delta": [
+              3,
+              0,
+              0,
+              2
+            ]
+          }
+        }
+      ]
+    },
+    "rumbo_ingreso": {
+      "prompt": "¿Qué importancia das a un ingreso estable en este momento?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Buscar estabilidad laboral antes de volver a estudiar.",
+          "next": "cierre_trabajo",
+          "outcome": {
+            "text": "Pones el empleo estable en primer plano por ahora.",
+            "delta": [
+              -1,
+              1,
+              0,
+              5
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Reservar tiempo para una formación futura, aunque sea gradual.",
+          "next": "cierre_formacion",
+          "outcome": {
+            "text": "Separas un espacio para aprender mientras continúas trabajando.",
+            "delta": [
+              2,
+              -1,
+              0,
+              2
+            ]
+          }
+        }
+      ]
+    },
+    "cierre_formacion": {
+      "prompt": "¿Qué compromiso quieres asumir para la siguiente etapa?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Elegir una meta académica concreta para el próximo periodo.",
+          "next": null,
+          "outcome": {
+            "text": "Sales con una meta de formación definida.",
+            "delta": [
+              4,
+              -1,
+              0,
+              -2
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Mantener abiertas varias opciones mientras exploras intereses.",
+          "next": null,
+          "outcome": {
+            "text": "Sales con tiempo para comparar posibilidades antes de comprometerte.",
+            "delta": [
+              2,
+              2,
+              1,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "cierre_trabajo": {
+      "prompt": "¿Qué relación quieres mantener con el trabajo?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Priorizar un empleo con responsabilidades claras.",
+          "next": null,
+          "outcome": {
+            "text": "Buscas un puesto con tareas y horario definidos.",
+            "delta": [
+              0,
+              1,
+              0,
+              4
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Buscar un trabajo que deje espacio para otros proyectos.",
+          "next": null,
+          "outcome": {
+            "text": "Eliges un trabajo compatible con otras partes de tu vida.",
+            "delta": [
+              1,
+              2,
+              1,
+              2
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

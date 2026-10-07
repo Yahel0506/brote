@@ -1,0 +1,715 @@
+{
+  "version": 1,
+  "stage": "adultez",
+  "requiredChoices": 8,
+  "startNode": "inicio",
+  "nextStage": "etapa-posterior",
+  "statOrder": [
+    "aprendizaje",
+    "bienestar",
+    "relaciones",
+    "recursos"
+  ],
+  "scoreRange": [
+    0,
+    100
+  ],
+  "nodes": {
+    "inicio": {
+      "prompt": "¿Aceptas más trabajo o reservas tiempo para una persona cercana?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Aceptar más responsabilidades: para ti, responder al equipo y asegurar continuidad también importa.",
+          "next": "trabajo",
+          "outcome": {
+            "text": "Aceptas la carga adicional y la persona cercana recibe menos tiempo tuyo.",
+            "delta": [
+              1,
+              -4,
+              -5,
+              8
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Reservar tiempo para alguien cercano: para ti, estar presente es parte de cumplir tus compromisos.",
+          "next": "cuidado",
+          "outcome": {
+            "text": "Pasas tiempo con esa persona y dejas pasar parte del ingreso adicional.",
+            "delta": [
+              0,
+              4,
+              6,
+              -3
+            ]
+          }
+        }
+      ]
+    },
+    "trabajo": {
+      "prompt": "¿Qué haces con una oportunidad que podría cambiar tu lugar en el trabajo?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Postularte y conocer los términos antes de decidir.",
+          "next": "propuesta",
+          "outcome": {
+            "text": "Entras al proceso y recibes más información sobre el puesto.",
+            "delta": [
+              2,
+              -1,
+              0,
+              3
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Hablar primero sobre límites y expectativas del nuevo rol.",
+          "next": "irregularidad",
+          "outcome": {
+            "text": "Aclaras condiciones antes de asumir una responsabilidad distinta.",
+            "delta": [
+              1,
+              2,
+              1,
+              -1
+            ]
+          }
+        }
+      ]
+    },
+    "cuidado": {
+      "prompt": "Alguien de tu familia necesita apoyo. ¿Cómo organizarías la ayuda?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Coordinar el cuidado entre varias personas.",
+          "next": "necesidades",
+          "outcome": {
+            "text": "Varias personas acuerdan tareas de cuidado.",
+            "delta": [
+              0,
+              3,
+              3,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Hacerte cargo de una parte concreta del cuidado.",
+          "next": "salud",
+          "outcome": {
+            "text": "Asumes una responsabilidad definida que ocupará tu tiempo.",
+            "delta": [
+              0,
+              -2,
+              2,
+              -1
+            ]
+          }
+        },
+        {
+          "id": "c",
+          "text": "Pedir a tu red cercana que cubra un turno de cuidado.",
+          "next": "necesidades",
+          "outcome": {
+            "text": "La confianza acumulada facilita compartir el cuidado.",
+            "delta": [
+              0,
+              4,
+              4,
+              1
+            ]
+          },
+          "when": {
+            "stat": "relaciones",
+            "gte": 60
+          }
+        }
+      ]
+    },
+    "propuesta": {
+      "prompt": "Un colega te pide respaldo para una propuesta que no conoces por completo. ¿Qué haces?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Respaldar a tu colega mientras verificas los detalles.",
+          "next": "formacion",
+          "outcome": {
+            "text": "Tu respaldo permite avanzar y quedas ligado a la revisión pendiente.",
+            "delta": [
+              1,
+              -1,
+              2,
+              2
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Pedir más información antes de asociar tu nombre a la propuesta.",
+          "next": "equipo",
+          "outcome": {
+            "text": "Se detiene tu aprobación hasta que puedas revisar la propuesta.",
+            "delta": [
+              3,
+              0,
+              -1,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "irregularidad": {
+      "prompt": "Descubres una irregularidad en un informe. ¿Cómo respondes?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Informar la irregularidad y dejar que el proceso avance.",
+          "next": "equipo",
+          "outcome": {
+            "text": "La irregularidad entra en el proceso formal de revisión.",
+            "delta": [
+              3,
+              -1,
+              1,
+              -2
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Hablar primero con la persona responsable y escuchar su explicación.",
+          "next": "formacion",
+          "outcome": {
+            "text": "Conoces el contexto de la persona antes de decidir si elevar el asunto.",
+            "delta": [
+              1,
+              0,
+              2,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "necesidades": {
+      "prompt": "¿Qué lugar das a las necesidades de cada persona?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Repartir las tareas según la disponibilidad de cada persona.",
+          "next": "costo_formacion",
+          "outcome": {
+            "text": "El reparto toma en cuenta el tiempo disponible de cada integrante.",
+            "delta": [
+              0,
+              2,
+              3,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Preguntar a quien recibe apoyo qué forma de ayuda prefiere.",
+          "next": "formacion",
+          "outcome": {
+            "text": "La persona expresa cómo desea recibir el cuidado.",
+            "delta": [
+              0,
+              1,
+              4,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "salud": {
+      "prompt": "Tu salud y tus responsabilidades compiten por tiempo. ¿Cómo lo resuelves?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ajustar tus responsabilidades para tener un horario sostenible.",
+          "next": "costo_formacion",
+          "outcome": {
+            "text": "Reduces algunas tareas y recuperas tiempo de cuidado personal.",
+            "delta": [
+              0,
+              7,
+              1,
+              -3
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Mantener el acuerdo actual y buscar otro modo de cuidarte.",
+          "next": "equipo",
+          "outcome": {
+            "text": "Mantienes las tareas y buscas espacios más pequeños para recuperarte.",
+            "delta": [
+              0,
+              -5,
+              0,
+              3
+            ]
+          },
+          "when": {
+            "stat": "bienestar",
+            "gte": 30
+          }
+        },
+        {
+          "id": "c",
+          "text": "Pedir que otra persona cubra temporalmente tus tareas mientras descansas.",
+          "next": "equipo",
+          "outcome": {
+            "text": "La carga se comparte mientras haces una pausa necesaria.",
+            "delta": [
+              0,
+              5,
+              2,
+              -2
+            ]
+          },
+          "when": {
+            "stat": "bienestar",
+            "lt": 30
+          }
+        }
+      ]
+    },
+    "formacion": {
+      "prompt": "¿Qué inversión quieres hacer en tu futuro profesional?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Invertir en una capacitación que te interesa.",
+          "next": "recomendacion",
+          "outcome": {
+            "text": "Inicias la capacitación y utilizas tiempo y recursos en ella.",
+            "delta": [
+              6,
+              -1,
+              0,
+              -6
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Usar tu experiencia para apoyar a alguien que está empezando.",
+          "next": "reserva",
+          "outcome": {
+            "text": "Acompañas a otra persona y ordenas lo que has aprendido.",
+            "delta": [
+              2,
+              1,
+              3,
+              0
+            ]
+          }
+        },
+        {
+          "id": "c",
+          "text": "Solicitar la capacitación avanzada a la que ahora calificas.",
+          "next": "recomendacion",
+          "outcome": {
+            "text": "Tu trayectoria abre una formación más exigente.",
+            "delta": [
+              7,
+              -2,
+              0,
+              -4
+            ]
+          },
+          "when": {
+            "stat": "aprendizaje",
+            "gte": 60
+          }
+        }
+      ]
+    },
+    "equipo": {
+      "prompt": "¿Cómo compartes una decisión difícil con tu equipo?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Contar lo ocurrido con todos los detalles relevantes.",
+          "next": "recomendacion",
+          "outcome": {
+            "text": "El equipo conoce los hechos y puede participar en la respuesta.",
+            "delta": [
+              2,
+              -1,
+              1,
+              -1
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Compartir lo necesario y proteger conversaciones privadas.",
+          "next": "reserva",
+          "outcome": {
+            "text": "La decisión avanza mientras mantienes reservados algunos intercambios.",
+            "delta": [
+              0,
+              1,
+              2,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "costo_formacion": {
+      "prompt": "Una oportunidad de formación exige recursos y tiempo. ¿Qué priorizas?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Asumir el costo de la formación ahora.",
+          "next": "reserva",
+          "outcome": {
+            "text": "Usas parte de tus recursos para entrar al programa.",
+            "delta": [
+              5,
+              -1,
+              0,
+              -6
+            ]
+          },
+          "when": {
+            "stat": "recursos",
+            "gte": 30
+          }
+        },
+        {
+          "id": "b",
+          "text": "Buscar una opción gradual o compartida.",
+          "next": "recomendacion",
+          "outcome": {
+            "text": "Encuentras una ruta de aprendizaje con otra distribución de tiempo y costo.",
+            "delta": [
+              3,
+              1,
+              2,
+              -2
+            ]
+          }
+        },
+        {
+          "id": "c",
+          "text": "Solicitar un apoyo o plan de pago para entrar.",
+          "next": "reserva",
+          "outcome": {
+            "text": "La formación es posible mediante una obligación futura.",
+            "delta": [
+              4,
+              -2,
+              1,
+              -3
+            ]
+          },
+          "when": {
+            "stat": "recursos",
+            "lt": 30
+          }
+        }
+      ]
+    },
+    "recomendacion": {
+      "prompt": "¿A quién recomendarías para una oportunidad limitada?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Recomendar a un familiar y ofrecerte a acompañar su aprendizaje.",
+          "next": "verdad",
+          "outcome": {
+            "text": "Tu familiar recibe la recomendación y tú quedas comprometido con su preparación.",
+            "delta": [
+              0,
+              0,
+              4,
+              2
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Recomendar a la persona con más experiencia para ese puesto.",
+          "next": "reparto",
+          "outcome": {
+            "text": "Se elige a alguien con experiencia y tu familiar conoce la decisión.",
+            "delta": [
+              3,
+              1,
+              -2,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "reserva": {
+      "prompt": "¿Cómo decidirías entre ahorrar y apoyar a alguien cercano?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mantener una reserva para imprevistos.",
+          "next": "reparto",
+          "outcome": {
+            "text": "Conservas recursos disponibles para una necesidad futura.",
+            "delta": [
+              0,
+              2,
+              -2,
+              3
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Destinar parte de la reserva a una necesidad actual.",
+          "next": "verdad",
+          "outcome": {
+            "text": "La persona recibe apoyo y tu reserva disminuye.",
+            "delta": [
+              0,
+              1,
+              3,
+              -5
+            ]
+          },
+          "when": {
+            "stat": "recursos",
+            "gte": 30
+          }
+        },
+        {
+          "id": "c",
+          "text": "Ofrecer tiempo y buscar ayuda externa para esa necesidad.",
+          "next": "verdad",
+          "outcome": {
+            "text": "Acompañas el problema sin comprometer un dinero del que no dispones.",
+            "delta": [
+              1,
+              1,
+              2,
+              -1
+            ]
+          },
+          "when": {
+            "stat": "recursos",
+            "lt": 30
+          }
+        }
+      ]
+    },
+    "verdad": {
+      "prompt": "¿Qué quieres decirle a alguien cercano sobre una decisión pasada?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Contar tu versión completa, incluso las partes que podrían incomodar.",
+          "next": "responsabilidad",
+          "outcome": {
+            "text": "La otra persona conoce tu versión completa y necesita tiempo para procesarla.",
+            "delta": [
+              2,
+              -2,
+              -4,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Respetar la privacidad de otra persona y contar solo tu parte.",
+          "next": "decision_compartida",
+          "outcome": {
+            "text": "Compartes lo que te corresponde sin revelar una conversación ajena.",
+            "delta": [
+              0,
+              1,
+              2,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "reparto": {
+      "prompt": "¿Cómo repartirías recursos limitados entre dos necesidades?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Dar a cada necesidad una parte igual.",
+          "next": "decision_compartida",
+          "outcome": {
+            "text": "Cada parte recibe una porción, aunque sus necesidades eran distintas.",
+            "delta": [
+              0,
+              -1,
+              3,
+              -4
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Priorizar la necesidad más urgente.",
+          "next": "responsabilidad",
+          "outcome": {
+            "text": "La urgencia recibe apoyo suficiente y la otra parte queda a la espera.",
+            "delta": [
+              1,
+              1,
+              -3,
+              -3
+            ]
+          }
+        }
+      ]
+    },
+    "responsabilidad": {
+      "prompt": "¿Qué responsabilidad quieres mantener personalmente?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mantener una responsabilidad directa aunque implique reorganizar tu tiempo.",
+          "next": "cierre_trabajo",
+          "outcome": {
+            "text": "Conservas un papel directo y ajustas tu calendario.",
+            "delta": [
+              1,
+              -2,
+              2,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Compartir esa responsabilidad y aceptar otras formas de apoyo.",
+          "next": "cierre_familia",
+          "outcome": {
+            "text": "Otras personas participan y cambia tu manera de acompañar.",
+            "delta": [
+              0,
+              3,
+              3,
+              -1
+            ]
+          }
+        }
+      ]
+    },
+    "decision_compartida": {
+      "prompt": "¿Qué decisión quieres compartir con otras personas?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Consultar a cada persona antes de decidir por el grupo.",
+          "next": "cierre_familia",
+          "outcome": {
+            "text": "Escuchas perspectivas distintas antes de cerrar el acuerdo.",
+            "delta": [
+              0,
+              -1,
+              3,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Tomar una decisión y explicar el criterio después.",
+          "next": "cierre_trabajo",
+          "outcome": {
+            "text": "La decisión queda tomada y después explicas cómo llegaste a ella.",
+            "delta": [
+              1,
+              1,
+              -2,
+              1
+            ]
+          }
+        }
+      ]
+    },
+    "cierre_trabajo": {
+      "prompt": "¿Qué lugar quieres que ocupe el trabajo en tu siguiente etapa?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Seguir avanzando profesionalmente con metas acordadas.",
+          "next": null,
+          "outcome": {
+            "text": "Defines nuevas metas profesionales y el tiempo que les dedicarás.",
+            "delta": [
+              3,
+              -2,
+              -1,
+              4
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Reducir el ritmo y reservar tiempo para otras responsabilidades.",
+          "next": null,
+          "outcome": {
+            "text": "Reorganizas el trabajo alrededor de otros compromisos.",
+            "delta": [
+              0,
+              3,
+              3,
+              -2
+            ]
+          }
+        }
+      ]
+    },
+    "cierre_familia": {
+      "prompt": "¿Qué legado te gustaría dejar a las personas cercanas?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Dejar recursos o bienes con instrucciones claras.",
+          "next": null,
+          "outcome": {
+            "text": "Queda establecido cómo quieres que se usen esos recursos.",
+            "delta": [
+              0,
+              1,
+              2,
+              -4
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Compartir conocimientos, historias y decisiones pendientes.",
+          "next": null,
+          "outcome": {
+            "text": "Dejas conversaciones y aprendizajes disponibles para las personas cercanas.",
+            "delta": [
+              3,
+              1,
+              3,
+              0
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "title": "Brote",
+  "phrase": "Tú no eres tu contexto, sino tus decisiones.",
+  "about": [
+    "Una experiencia de reflexión filosófica presentada como un simulador de vida.",
+    "Cada elección modifica lo que viene después. No hay respuestas correctas: hay una trayectoria que se va construyendo, y un árbol que la vuelve visible."
+  ],
+  "credits": [
+    "Proyecto para Filosofía II",
+    {
+      "text": "Diseño y desarrollo: Angel ·",
+      "url": "https://yahel.dev",
+      "link": "yahel.dev"
+    }
+  ],
+  "music": {
+    "src": null
+  }
+}

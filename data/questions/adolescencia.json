@@ -1,0 +1,732 @@
+{
+  "version": 1,
+  "stage": "adolescencia",
+  "requiredChoices": 8,
+  "startNode": "inicio",
+  "nextStage": "juventud",
+  "statOrder": [
+    "aprendizaje",
+    "bienestar",
+    "relaciones",
+    "recursos"
+  ],
+  "scoreRange": [
+    0,
+    100
+  ],
+  "initialStats": [
+    50,
+    50,
+    50,
+    50
+  ],
+  "nodes": {
+    "inicio": {
+      "prompt": "¿Cómo organizas una semana con un examen y planes con tus amistades?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Reservar bloques fijos de estudio y rechazar esta salida: para ti, sostener una meta también es una promesa.",
+          "next": "estudio",
+          "outcome": {
+            "text": "Llegas mejor preparado al examen, pero la semana te deja menos descanso y convivencia.",
+            "delta": [
+              8,
+              -4,
+              -1,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Dejar espacio para decidir según el ánimo del día: para ti, escuchar tus necesidades también es responsabilidad.",
+          "next": "amistades",
+          "outcome": {
+            "text": "Encuentras tiempo para convivir y descansar, aunque el estudio avanza a un ritmo más variable.",
+            "delta": [
+              3,
+              3,
+              3,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "estudio": {
+      "prompt": "¿Prefieres estudiar con alguien o fijarte una meta a solas?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Proponer un grupo de estudio: cada persona puede aportar algo distinto.",
+          "next": "proyecto",
+          "outcome": {
+            "text": "El grupo comparte métodos y aparecen distintas formas de resolver el temario.",
+            "delta": [
+              3,
+              0,
+              3,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Pedir una meta clara al docente y prepararte por tu cuenta: conoces mejor tu ritmo.",
+          "next": "cansancio",
+          "outcome": {
+            "text": "Tienes una meta concreta y más control del ritmo, pero llevas tú la mayor parte de la preparación.",
+            "delta": [
+              4,
+              -1,
+              1,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "amistades": {
+      "prompt": "¿Cómo respondes a la invitación que coincide con el examen?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ir a la salida completa: estar presente también es cuidar una amistad.",
+          "next": "plan_amiga",
+          "outcome": {
+            "text": "Compartes la tarde con el grupo y debes reorganizar la preparación del examen.",
+            "delta": [
+              -3,
+              1,
+              5,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Acompañar una parte del plan y reservar otra para estudiar: puedes intentar cumplir con ambos compromisos.",
+          "next": "inclusion",
+          "outcome": {
+            "text": "Participas un tiempo y vuelves a estudiar, aunque la jornada queda ajustada.",
+            "delta": [
+              2,
+              -1,
+              2,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "proyecto": {
+      "prompt": "En el proyecto grupal, ¿cómo repartirías el trabajo?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Repartir según las fortalezas de cada quien: que cada persona aporte donde más sabe.",
+          "next": "oportunidad",
+          "outcome": {
+            "text": "El proyecto se organiza con tareas especializadas y el grupo aprende a coordinarse.",
+            "delta": [
+              4,
+              0,
+              3,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Rotar las tareas: que todos prueben la misma carga y aprendan lo mismo.",
+          "next": "apoyo",
+          "outcome": {
+            "text": "El reparto da experiencia a todos, aunque requiere más coordinación.",
+            "delta": [
+              3,
+              -1,
+              4,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "cansancio": {
+      "prompt": "El equipo cuenta contigo, pero ya estás cansado. ¿Qué haces?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Explicar al equipo cómo te sientes y renegociar el acuerdo.",
+          "next": "promesa",
+          "outcome": {
+            "text": "El equipo ajusta el acuerdo y puedes recuperar parte de tu energía.",
+            "delta": [
+              0,
+              5,
+              2,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Cumplir lo acordado y buscar una forma de organizarte mejor.",
+          "next": "oportunidad",
+          "outcome": {
+            "text": "Cumples el compromiso y continúas con menos energía para lo que sigue.",
+            "delta": [
+              4,
+              -5,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "plan_amiga": {
+      "prompt": "Tu amistad quería contar contigo. ¿Cómo conversas sobre el cambio de plan?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Explicar con claridad por qué cambiaste el plan.",
+          "next": "apoyo",
+          "outcome": {
+            "text": "La conversación aclara tus motivos, aunque deja espacio para una respuesta incómoda.",
+            "delta": [
+              0,
+              1,
+              3,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Hablar de otra cosa para no hacer más grande un desacuerdo pequeño.",
+          "next": "promesa",
+          "outcome": {
+            "text": "Evitas la conversación ahora, pero la otra persona sigue sin saber qué ocurrió.",
+            "delta": [
+              0,
+              1,
+              -2,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "inclusion": {
+      "prompt": "Alguien nuevo queda al margen del grupo. ¿Cómo intervienes?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Invitar a esa persona directamente: que sepa que tiene un lugar.",
+          "next": "apoyo",
+          "outcome": {
+            "text": "La persona recibe una invitación clara y el grupo debe responder a ese gesto.",
+            "delta": [
+              0,
+              1,
+              4,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Consultar primero en privado con el grupo: evitar ponerla en evidencia.",
+          "next": "promesa",
+          "outcome": {
+            "text": "El grupo conversa antes de actuar; la inclusión tarda un poco más.",
+            "delta": [
+              0,
+              0,
+              2,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "oportunidad": {
+      "prompt": "Surge una oportunidad académica que exige reorganizar tus planes. ¿Qué eliges?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Tomar la oportunidad ahora, aunque cambie tu agenda habitual.",
+          "next": "materiales",
+          "outcome": {
+            "text": "Te incorporas a la actividad y necesitas reorganizar tiempo y materiales.",
+            "delta": [
+              5,
+              -2,
+              0,
+              -2
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Esperar a tener más claro qué quieres antes de aceptar.",
+          "next": "ayuda",
+          "outcome": {
+            "text": "Mantienes tu agenda y ganas tiempo para decidir qué aprender después.",
+            "delta": [
+              1,
+              2,
+              1,
+              0
+            ]
+          }
+        },
+        {
+          "id": "c",
+          "text": "Solicitar una beca para participar en la actividad.",
+          "next": "materiales",
+          "outcome": {
+            "text": "La solicitud abre acceso a la actividad con apoyo económico.",
+            "delta": [
+              6,
+              -2,
+              0,
+              2
+            ]
+          },
+          "when": {
+            "stat": "aprendizaje",
+            "gte": 60
+          }
+        }
+      ]
+    },
+    "apoyo": {
+      "prompt": "¿A quién pedirías apoyo para manejar lo que se acumuló?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Pedir apoyo a una amistad y acordar juntos qué hacer.",
+          "next": "ayuda",
+          "outcome": {
+            "text": "La otra persona comparte una parte del problema y deben coordinarse.",
+            "delta": [
+              0,
+              2,
+              3,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Pedir orientación a una persona adulta de confianza.",
+          "next": "materiales",
+          "outcome": {
+            "text": "Recibes una sugerencia concreta para ordenar las tareas pendientes.",
+            "delta": [
+              2,
+              1,
+              1,
+              0
+            ]
+          }
+        },
+        {
+          "id": "c",
+          "text": "Pedir al grupo que se organice contigo.",
+          "next": "ayuda",
+          "outcome": {
+            "text": "La confianza previa facilita repartir el esfuerzo entre varias personas.",
+            "delta": [
+              1,
+              2,
+              4,
+              0
+            ]
+          },
+          "when": {
+            "stat": "relaciones",
+            "gte": 60
+          }
+        }
+      ]
+    },
+    "promesa": {
+      "prompt": "¿Qué harías con una promesa que ya no cabe en tu horario?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Cambiar una actividad de esta semana y conservar las demás.",
+          "next": "energia",
+          "outcome": {
+            "text": "Liberas tiempo para la promesa y modificas el resto de la semana.",
+            "delta": [
+              0,
+              4,
+              1,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Mantener el compromiso, pero cumplirlo de una manera distinta.",
+          "next": "materiales",
+          "outcome": {
+            "text": "Cumples una versión más acotada del acuerdo y ajustas la preparación pendiente.",
+            "delta": [
+              2,
+              -2,
+              1,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "materiales": {
+      "prompt": "Necesitas materiales para estudiar. ¿Cómo prefieres conseguirlos?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Usar materiales compartidos y adaptar el estudio a lo que hay.",
+          "next": "habito",
+          "outcome": {
+            "text": "Organizas el estudio alrededor de lo que el grupo puede compartir.",
+            "delta": [
+              2,
+              0,
+              2,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Buscar el material específico que tenías en mente.",
+          "next": "conversacion",
+          "outcome": {
+            "text": "Consigues el material y haces un gasto de tus recursos.",
+            "delta": [
+              5,
+              0,
+              0,
+              -8
+            ]
+          },
+          "when": {
+            "stat": "recursos",
+            "gte": 30
+          }
+        },
+        {
+          "id": "c",
+          "text": "Pedir prestado el material específico.",
+          "next": "conversacion",
+          "outcome": {
+            "text": "Consigues el material tras coordinar un préstamo y esperar a que esté disponible.",
+            "delta": [
+              3,
+              -1,
+              1,
+              0
+            ]
+          },
+          "when": {
+            "stat": "recursos",
+            "lt": 30
+          }
+        }
+      ]
+    },
+    "ayuda": {
+      "prompt": "Alguien ofrece ayudarte, pero quiere participar en la decisión. ¿Cómo respondes?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Aceptar la ayuda y definir juntos los límites.",
+          "next": "conversacion",
+          "outcome": {
+            "text": "La ayuda llega con un acuerdo explícito sobre qué decide cada persona.",
+            "delta": [
+              0,
+              2,
+              3,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Agradecer y seguir con tu propio plan.",
+          "next": "habito",
+          "outcome": {
+            "text": "Conservas tu manera de organizarte y asumes las tareas restantes.",
+            "delta": [
+              1,
+              0,
+              -1,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "energia": {
+      "prompt": "¿Cómo quieres manejar tu energía antes del examen?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Reservar un periodo de descanso antes de retomar.",
+          "next": "habito",
+          "outcome": {
+            "text": "Descansas antes de continuar y recuperas energía.",
+            "delta": [
+              0,
+              7,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Seguir con el plan y ajustar el ritmo sobre la marcha.",
+          "next": "conversacion",
+          "outcome": {
+            "text": "Continúas la preparación, con menos margen para recuperarte.",
+            "delta": [
+              2,
+              -3,
+              0,
+              0
+            ]
+          },
+          "when": {
+            "stat": "bienestar",
+            "gte": 30
+          }
+        },
+        {
+          "id": "c",
+          "text": "Pedir que alguien cubra una tarea mientras descansas.",
+          "next": "conversacion",
+          "outcome": {
+            "text": "La tarea se comparte y haces una pausa necesaria antes de seguir.",
+            "delta": [
+              0,
+              5,
+              2,
+              0
+            ]
+          },
+          "when": {
+            "stat": "bienestar",
+            "lt": 30
+          }
+        }
+      ]
+    },
+    "habito": {
+      "prompt": "¿Qué tipo de plan de estudio te representa más?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Preparar una rutina con metas pequeñas y regulares.",
+          "next": "plan_estudio",
+          "outcome": {
+            "text": "El estudio queda distribuido en pasos que puedes repetir.",
+            "delta": [
+              3,
+              2,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Organizarte alrededor de una meta exigente y revisar cómo te va.",
+          "next": "plan_vinculos",
+          "outcome": {
+            "text": "Concentras el esfuerzo en una meta y deberás evaluar el ritmo después.",
+            "delta": [
+              5,
+              -2,
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "conversacion": {
+      "prompt": "¿Qué conversación quieres tener con tu grupo?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Hablar en privado con la persona más involucrada.",
+          "next": "plan_vinculos",
+          "outcome": {
+            "text": "La persona conoce tu postura directamente y pueden aclarar el asunto.",
+            "delta": [
+              0,
+              1,
+              3,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Proponer una conversación con el grupo completo.",
+          "next": "plan_estudio",
+          "outcome": {
+            "text": "Varias personas expresan su perspectiva y acuerdan cómo seguir.",
+            "delta": [
+              0,
+              -1,
+              4,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "plan_estudio": {
+      "prompt": "¿Qué compromiso quieres priorizar al cerrar el periodo?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Mantener un horario definido para estudio, descanso y amistades.",
+          "next": "cierre_estudio",
+          "outcome": {
+            "text": "Fijas un calendario con espacios para las tres prioridades.",
+            "delta": [
+              2,
+              3,
+              2,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Dejar espacios abiertos y decidir cada semana.",
+          "next": "cierre_amigos",
+          "outcome": {
+            "text": "Reservas flexibilidad para responder a lo que cambie durante el periodo.",
+            "delta": [
+              1,
+              2,
+              3,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "plan_vinculos": {
+      "prompt": "¿Qué quieres hacer con el desacuerdo pendiente?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Aclarar directamente qué quisiste decir.",
+          "next": "cierre_amigos",
+          "outcome": {
+            "text": "La otra persona escucha tu explicación y el vínculo tiene una base nueva.",
+            "delta": [
+              0,
+              1,
+              4,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Dar tiempo y retomar la conversación más adelante.",
+          "next": "cierre_estudio",
+          "outcome": {
+            "text": "Dejas espacio antes de hablar de nuevo y el asunto sigue abierto.",
+            "delta": [
+              0,
+              2,
+              -1,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "cierre_estudio": {
+      "prompt": "¿Cómo quieres empezar el siguiente periodo?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Seguir una rutina propia y revisarla cuando cambien tus prioridades.",
+          "next": null,
+          "outcome": {
+            "text": "Comienzas el siguiente periodo con una rutina que puedes adaptar.",
+            "delta": [
+              3,
+              2,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Pedir que alguien de confianza te acompañe con tus metas.",
+          "next": null,
+          "outcome": {
+            "text": "Compartes tus metas con alguien que podrá acompañarte.",
+            "delta": [
+              2,
+              1,
+              3,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    "cierre_amigos": {
+      "prompt": "¿Qué lugar quieres dar a tus amistades en tu plan?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Decir con claridad cuándo puedes estar presente.",
+          "next": null,
+          "outcome": {
+            "text": "Tus amistades conocen tus límites y cuándo cuentas con tiempo.",
+            "delta": [
+              0,
+              2,
+              3,
+              0
+            ]
+          }
+        },
+        {
+          "id": "b",
+          "text": "Mantenerte disponible y decidir sobre la marcha.",
+          "next": null,
+          "outcome": {
+            "text": "Dejas el plan abierto para responder cuando surjan encuentros.",
+            "delta": [
+              0,
+              -1,
+              4,
+              0
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
